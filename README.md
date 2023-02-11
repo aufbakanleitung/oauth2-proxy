@@ -28,17 +28,13 @@ All other options "On"
 And then choose save. This ensures that the groups the user is a member of are passed back to OAuth2 Proxy and subsequently to the application itself.
 
 
-
-
-
-
 ## Oauth-proxy installeren
 
 `helm repo add oauth2-proxy https://oauth2-proxy.github.io/manifests`
 
 `helm repo update`
 
-`helm install oauth2-proxy oauth2-proxy/oauth2-proxy -n oauth2-proxy -f oauth2-proxy/values-oauth2-proxy.yaml`
+`helm install oauth2-proxy oauth2-proxy/oauth2-proxy -n oauth2-proxy -f values-oauth2-proxy.yaml`
 
 The key fields to update with your own values are:
 
