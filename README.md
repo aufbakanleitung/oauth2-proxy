@@ -7,8 +7,11 @@ zie vooral: https://www.talkingquickly.co.uk/webapp-authentication-keycloak-OAut
 First we'll need to create a client application with Keycloak. Crate a new OpenID Connection application and set:
 
 Client ID: `oauth2-proxy`
+
 Access Type: `confidential`
+
 Valid Redirect URLs: `https://oauth.sitesandsuch.nl/oauth2/callback`
+
 
 You'll then need to save the entry and go to the newly available "Credentials" tab and make a note of the "Secret".
 
