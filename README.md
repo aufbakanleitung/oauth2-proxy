@@ -2,6 +2,8 @@
 
 zie vooral: `https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider/#keycloak-auth-provider`
 
+zie vooral: `https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/`
+
 ## Keycloak OIDC Auth Provider configureren
 
 Create new client in your Keycloak realm with Access Type 'confidental', Client protocol 'openid-connect' and Valid Redirect URIs 'https://internal.yourcompany.com/oauth2/callback'
