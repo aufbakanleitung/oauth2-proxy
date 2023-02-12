@@ -36,6 +36,11 @@ And then choose save. This ensures that the groups the user is a member of are p
 
 `helm install oauth2-proxy oauth2-proxy/oauth2-proxy -n oauth2-proxy -f values-oauth2-proxy.yaml`
 
+### Upgraden OAuth2-proxy
+
+`helm upgrade oauth2-proxy oauth2-proxy/oauth2-proxy -n oauth2-proxy -f values-oauth2-proxy.yaml`
+
+
 The key fields to update with your own values are:
 
 clientSecret: This is the client secret noted down from the Keycloak credentials page
