@@ -31,6 +31,6 @@ zie: `https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#co
 
 ## Website achter OAuth plaatsen
 
-Het is genoem om annotatis in de Ingress op te nemen:
+Het is genoeg om annotaties in de Ingress resource op te nemen:
 
-Zie hiervoor de templates.
+Zie hiervoor de ingress-templates.
