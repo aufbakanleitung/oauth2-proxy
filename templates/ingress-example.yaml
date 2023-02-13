@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-<example>
+  namespace: <example>
+  labels:
+    app: <example>
+  annotations:
+    nginx.org/redirect-to-https: "true"
+    cert-manager.io/cluster-issuer: acme-issuer
+    nginx.ingress.kubernetes.io/auth-url: "https://oauth.sitesandsuch.nl/oauth2/auth"
+    nginx.ingress.kubernetes.io/auth-signin: "https://oauth.sitesandsuch.nl/oauth2/start?rd=$scheme://$best_http_host$request_uri"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - <example>.sitesandsuch.nl
+    secretName: <example>-tls-secret
+  rules:
+    - host: <example>.sitesandsuch.nl
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: <example>-service
+                port:
+                  number: 80
