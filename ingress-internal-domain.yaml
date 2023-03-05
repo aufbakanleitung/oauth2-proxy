@@ -1,28 +1,28 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: oauth2-ingress
+  name: oauth2-ingress-internal-domain
   namespace: oauth2-proxy
   labels:
-    app: oauth2-proxy
+    app: oauth2-proxy-internal-domain
   annotations:
     nginx.org/redirect-to-https: "true"
-    cert-manager.io/cluster-issuer: acme-issuer
+    cert-manager.io/cluster-issuer: selfsigned-issuer
     nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - oauth.sitesandsuch.nl
-    secretName: oauth-tls-secret
+    - oauth.sitesandsuch.local
+    secretName: oauth-selfsigned-secret
   rules:
-    - host: oauth.sitesandsuch.nl
+    - host: oauth.sitesandsuch.local
       http:
         paths:
           - pathType: Prefix
             path: "/"
             backend:
               service:
-                name: oauth2-proxy
+                name: oauth2-proxy-internal-domain
                 port:
                   number: 4180
