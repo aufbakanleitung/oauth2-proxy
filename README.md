@@ -12,7 +12,7 @@ Create a mapper with Mapper Type 'Group Membership' and Token Claim Name 'groups
 Create a mapper with Mapper Type 'Audience' and Included Client Audience and Included Custom Audience set to your client name.
 Make sure you set the following to the appropriate url:
 
-Client ID: `oauth2-proxy`
+Client ID: `oauth2-proxy-external-domain`
 
 Valid Redirect URLs: `https://oauth.sitesandsuch.nl/oauth2/callback`
 
