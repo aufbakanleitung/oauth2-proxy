@@ -21,9 +21,9 @@ Zie hiervoor: `https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oa
 ## Oauth-proxy installeren
 
 De installatie bestaat uit 2 delen:
-1. De deployment: `kubectl apply -f oauth2-proxy.yaml`
+1. De deployment: `kubectl apply -f oauth2-proxy-external-domain.yaml`
 
-2. De ingress: `kubectl apply -f ingress.yaml`
+2. De ingress: `kubectl apply -f ingress-external-domain.yaml`
 
 Verklaring argument in Deployment
 
