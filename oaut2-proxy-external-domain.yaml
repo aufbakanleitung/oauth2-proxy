@@ -22,7 +22,7 @@ spec:
           args:
             - --provider=keycloak-oidc
             - --client-id=oauth2-proxy-external-domain
-            - --client-secret=43Bnupso26V29OpnI7tOaCpvRcyX6JbM # aanpassen bij herinstallatie
+            - --client-secret=k7hEmDYNGm66DFsPMX3aXayuMMOq0dic # aanpassen bij herinstallatie
             - --redirect-url=https://oauth.sitesandsuch.nl/oauth2/callback
             - --oidc-issuer-url=https://keycloak.sitesandsuch.nl/realms/sitesandsuch
             #- --allowed-role=<realm role name> // Optional, required realm role
