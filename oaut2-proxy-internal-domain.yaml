@@ -32,7 +32,7 @@ spec:
             - --cookie-secret=TVloZkJWc1dILzRvclRrRndjcGtPVTJMdDNWeG12Y3M=
             - --cookie-name=_oauth2_proxy_internal
             - --cookie-refresh=1h
-            - --cookie-expire=8h
+            - --cookie-expire=168h
             - --email-domain=*
             - --code-challenge-method=S256
             - --session-store-type=cookie
