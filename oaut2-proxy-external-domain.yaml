@@ -37,24 +37,12 @@ spec:
             - --email-domain="sitesandsuch.nl"
             - --code-challenge-method=S256
             - --reverse-proxy=true
-            - --upstream=http://172.16.0.180:80
-            #- --upstream=http://0.0.0.0:80
-            #- --upstream=file:///dev/null
-            #- --cookie-name=_oauth2_proxy_external
-            #- --cookie-refresh=1h
-            #- --cookie-expire=168h
+            - --upstream=http://172.16.0.180:80 # adress van de ingresscontroller
+            - --cookie-name=_oauth2_proxy_external
+            - --cookie-refresh=1h
+            - --cookie-expire=168h
             - --cookie-domain=.sitesandsuch.nl
             - --whitelist-domain=.sitesandsuch.nl:443
-            #- --http-address=0.0.0.0:4180
-            #- --https-address=0.0.0.0:4180
-            #- --skip-provider-button=true
-            #- --skip-auth-preflight=false
-            #- --auth-logging=true
-            #- --pass-authorization-header=true
-            #- --set-authorization-header=true
-            #- --set-xauthrequest=true
-            #- --pass-access-token=true
-            #- --pass-user-headers=true
           ports:
             - containerPort: 4180
               protocol: TCP
