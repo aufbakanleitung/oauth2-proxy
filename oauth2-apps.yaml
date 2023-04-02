@@ -1,32 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oauth2-proxy-external-domain
+  name: oauth2-apps
   namespace: oauth2-proxy
   labels:
-    app: oauth2-proxy-external-domain
+    app: oauth2-apps
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: oauth2-proxy-external-domain
+      app: oauth2-apps
   template:
     metadata:
       labels:
-        app: oauth2-proxy-external-domain
+        app: oauth2-apps
     spec:
       containers:
-        - name: oauth2-proxy-external-domain
+        - name: oauth2-apps
           image: quay.io/oauth2-proxy/oauth2-proxy:latest
           imagePullPolicy: Always
           args:
             - --provider=keycloak-oidc
-            - --client-id=oauth2-proxy-external-domain
-            - --client-secret=vZXa6bMVMn89x07VUeVMEB8XtT43oA1d # aanpassen bij herinstallatie
+            - --client-id=oauth2-apps
+            - --client-secret=KlGXuxNOpibTgTo9Ip80V61qzK6d2t0r # aanpassen bij herinstallatie
             - --redirect-url=https://oauth.sitesandsuch.nl/oauth2/callback
             - --oidc-issuer-url=https://keycloak.sitesandsuch.nl/realms/sitesandsuch
-            #- --allowed-role=<realm role name> // Optional, required realm role
-            #- --allowed-role=<client id>:<client role name> // Optional, required client role
             # Create a new secret with the following command
             # openssl rand -base64 32 | head -c 32 | base64
             - --session-store-type=cookie
@@ -38,9 +36,9 @@ spec:
             - --code-challenge-method=S256
             - --reverse-proxy=true
             - --upstream=http://172.16.0.180:80 # adress van de ingresscontroller
-            - --cookie-name=_oauth2_proxy_external
-            - --cookie-refresh=1h
-            - --cookie-expire=168h
+            - --cookie-name=_oauth2_apps
+            - --cookie-refresh=5m
+            - --cookie-expire=10m
             - --cookie-domain=.sitesandsuch.nl
             - --whitelist-domain=.sitesandsuch.nl:443
           ports:
@@ -50,10 +48,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: oauth2-proxy-external-domain
+  name: oauth2-apps
   namespace: oauth2-proxy
   labels:
-    app: oauth2-proxy-external-domain
+    app: oauth2-apps
 spec:
   ports:
     - name: http
@@ -61,4 +59,4 @@ spec:
       protocol: TCP
       targetPort: 4180
   selector:
-    app: oauth2-proxy-external-domain
+    app: oauth2-apps

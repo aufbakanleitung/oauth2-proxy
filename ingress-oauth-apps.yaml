@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: oauth2-ingress-external-domain
+  name: oauth2-ingress-apps
   namespace: oauth2-proxy
   labels:
-    app: oauth2-proxy-external-domain
+    app: oauth2-apps
   annotations:
     nginx.org/redirect-to-https: "true"
     cert-manager.io/cluster-issuer: acme-issuer
@@ -23,6 +23,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: oauth2-proxy-external-domain
+                name: oauth2-apps
                 port:
                   number: 4180
