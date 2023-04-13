@@ -6,7 +6,7 @@ zie vooral: `https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-exte
 
 ## Keycloak OIDC Auth Provider configureren
 
-Create new client in your Keycloak realm with Access Type 'confidental', Client protocol 'openid-connect' and Valid Redirect URIs 'https://keycloak.sitesandsuch.nl/oauth2/callback'
+Create new client in your Keycloak realm with Access Type 'confidental', Client protocol 'openid-connect' and Valid Redirect URIs 'https://oauth.sitesandsuch.nl/oauth2/callback'
 
 Take note of the Secret in the credential tab of the client
 
