@@ -1,0 +1,187 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ckad-app
+  namespace: ckad
+  uid: 0a7bfe29-9a52-4908-b123-e308a5d6047c
+  resourceVersion: '36353750'
+  generation: 5
+  creationTimestamp: '2023-07-28T11:53:18Z'
+  labels:
+    app: ckad-examen
+    argocd.argoproj.io/instance: ckad
+  annotations:
+    deployment.kubernetes.io/revision: '2'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"ckad-examen","argocd.argoproj.io/instance":"ckad"},"name":"ckad-app","namespace":"ckad"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"ckad-examen"}},"template":{"metadata":{"labels":{"app":"ckad-examen"}},"spec":{"containers":[{"image":"core.harbor.sitesandsuch.nl/apps/ckad-exam:v2.1-amd64","imagePullPolicy":"Always","name":"ckad-examen","ports":[{"containerPort":80}],"resources":{"limits":{"cpu":"500m","memory":"128Mi"},"requests":{"cpu":"250m","memory":"64Mi"}}}],"imagePullSecrets":[{"name":"reg-cred-secret"}]}}}}
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-07-28T11:53:18Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:containers:
+                k:{"name":"ckad-examen"}:
+                  .: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":80,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:protocol: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:imagePullSecrets:
+                .: {}
+                k:{"name":"reg-cred-secret"}: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+    - manager: argocd-controller
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-08-17T16:43:42Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            f:argocd.argoproj.io/instance: {}
+        f:spec:
+          f:template:
+            f:spec:
+              f:containers:
+                k:{"name":"ckad-examen"}:
+                  f:image: {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-08-17T16:43:42Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      subresource: status
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ckad-examen
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ckad-examen
+    spec:
+      containers:
+        - name: ckad-examen
+          image: core.harbor.sitesandsuch.nl/apps/ckad-exam:v2.1-amd64
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 128Mi
+            requests:
+              cpu: 250m
+              memory: 64Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+        - name: reg-cred-secret
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 5
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2023-08-15T17:13:51Z'
+      lastTransitionTime: '2023-08-15T17:13:51Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2023-08-16T05:40:29Z'
+      lastTransitionTime: '2023-07-28T11:53:18Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "ckad-app-7c9d48d9f9" has successfully progressed.
