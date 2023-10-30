@@ -1,8 +1,8 @@
 # OAuth2-proxy
 
-zie vooral: `https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider/#keycloak-oidc-auth-provider`
+zie `https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider/#keycloak-oidc-auth-provider`
 
-zie vooral: `https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/`
+`https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/`
 
 ## Keycloak OIDC Auth Provider configureren
 
